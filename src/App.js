@@ -11,6 +11,13 @@ class App extends Component {
             data: ["23", "31", "40", "101", "40", "36", "32", "23", "14", "8", "5", "2"]
           }],
           options: {
+            colors: [function({ value, seriesIndex, w }) {
+                if (value < 50) {
+                    return '#4285F4'
+                } else {
+                    return '#DB4437'
+                }
+            }],
             chart: {
               height: 350,
               type: 'bar',
@@ -37,7 +44,7 @@ class App extends Component {
             
             xaxis: {
               categories: ["1pm", "2pm", "3pm", "NOW", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm", "12am"],
-              position: 'top',
+              position: 'bottom',
               axisBorder: {
                 show: false
               },
@@ -89,7 +96,8 @@ class App extends Component {
               series={this.state.series}
               type="bar"
               width="1200"
-              height="600"
+              height="500"
+              align='center'
             />
           </div>
         </div>
