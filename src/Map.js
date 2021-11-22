@@ -1,10 +1,12 @@
 // JavaScript source code
 import React from 'react';
+import myMap from "./recMap.PNG"
+import './Map.css'
 
-const Map = () => {
+function Map() {
 	return(
 		<div className="Map">
-			<h1>Map</h1>
+			<img src={myMap}></img>
 		</div>
 	)
 }
