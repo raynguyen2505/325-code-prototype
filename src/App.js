@@ -4,6 +4,7 @@ import { Navbar, Nav, NavDropdown, Button, Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Map from "./Map";
 import Home from "./Home";
+import Recommendation from "./Recommendation"
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,6 +26,9 @@ function App() {
                 <Link to="/map">
                     <Nav.Link href="#map">Map</Nav.Link>
                 </Link>
+                <Link to="/recommendation">
+                    <Nav.Link href="#recommendation">Recommendation</Nav.Link>
+                </Link>
             </Nav>
             </Container>
         </Navbar>
@@ -37,6 +41,9 @@ function App() {
           </Route>
           <Route path="/home" component={Home}>
             <Home />
+          </Route>
+          <Route path="/recommendation" component={Recommendation}>
+            <Recommendation />
           </Route>
         </Switch >
         
