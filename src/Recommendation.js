@@ -13,6 +13,7 @@ function Recommendation() {
     ])
     const [recs, setRecs] = useState({})
     const[isDataSet, setIsDataSet] = useState(false)
+    const[isGenerateClicked, setIsGenerateClicked] = useState(false)
     const [workoutTime, setWorkoutTime] = useState(1)
 
     const getRecs = dataArr => {
@@ -97,6 +98,7 @@ function Recommendation() {
     const renderTable = () => {
         const dataStringLines = data.split(/\r\n|\n/);
         getRecs(dataStringLines)
+        setIsGenerateClicked(true)
     }
 	return(
 		<div className="Recommendation">
@@ -139,7 +141,7 @@ function Recommendation() {
             <br/>
             <div className="table-section">
                 <h3>Recommendations</h3>
-                {isDataSet
+                {isDataSet && isGenerateClicked
                     ? <table className="recTable">
                         <tr>
                             <td>&nbsp;</td>
