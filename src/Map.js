@@ -1,6 +1,5 @@
 // JavaScript source code
 import React, {useRef, useEffect} from 'react';
-import myMap from "./reccentermap_page-0001.jpg"
 import './Map.css'
 
 const Map = props => {
