@@ -8,31 +8,25 @@ import { logDOM } from "@testing-library/dom";
 function App() {
     const [state1, setState] = useState('idle');
 
-    const onClickHandler1 = () => {
-        setState('loading');
-        setTimeout(() => {
-            setState('success');
-        }, 2000);
+    const moreInfo = () => {
+        window.location = 'more_info';
     }
 
-    const onClickHandler2 = () => {
-        setState('loading');
-        setTimeout(() => {
-            setState('success');
-        }, 2000);
+    const history = () => {
+        window.location = 'history';
     }
     let state2 = {
         series: [{
             name: 'Capacity',
-            data: ["23", "31", "40", "101", "40", "36", "32", "23", "14", "8", "5", "2"]
+            data: ["23", "31", "40", "30", "101", "36", "32", "23", "14", "8", "5", "2"] 
           }],
           options: {
             colors: [function({ value, seriesIndex, w }) {
-                if (value < 50) {
+                if (value < 45) {
                     return '#4169E1'
                 } else {
                     return '#DB4437'
-                }
+                } 
             }],
             chart: {
               height: 350,
@@ -59,7 +53,7 @@ function App() {
             },
             
             xaxis: {
-              categories: ["1pm", "2pm", "3pm", "NOW", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm", "12am"],
+              categories: ["1pm", "2pm", "3pm", "4pm", "NOW", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm", "12am"],
               position: 'bottom',
               axisBorder: {
                 show: false
@@ -98,46 +92,57 @@ function App() {
               }
             
             },
+            title: {
+                text: 'Prediction 🡺',
+                floating: true,
+                offsetY: 200,
+                align: 'center',
+                style: {
+                  color: '#444'
+                }
+              }
           },
     };
 
     return (
-      <div>
-        <Chart
-            options={state2.options}
-            series={state2.series}
-            type="bar"
-            width="1200"
-            height="500"
-            align='center'
-        />
-        <ReactiveButton
-            style={
-                {
-                    borderRadius: '10px',
-                    left: '400px',
+        <div>
+            <Chart
+                options={state2.options}
+                series={state2.series}
+                type="bar"
+                width="1200"
+                height="500"
+                align='center'
+            />
+            <ReactiveButton
+                style={
+                    {
+                        borderRadius: '10px',
+                        left: '400px',
+                    }
                 }
-            }
-            shadow
-            size="large"
-            color="#4169E1"
-            buttonState={state1}
-            idleText='More Info'
-        />
-        <ReactiveButton
-            style={
-                {
-                    borderRadius: '10px',
-                    left: '800px',
+                shadow
+                size="large"
+                color="#4169E1"
+                buttonState={state1}
+                idleText='More Info'
+                onClick={moreInfo}
+            />
+            <ReactiveButton
+                style={
+                    {
+                        borderRadius: '10px',
+                        left: '800px',
+                    }
                 }
-            }
-            shadow
-            color="#4169E1"
-            buttonState={state1}
-            idleText='History'
-            size='large'
-        />
-      </div>
+                onClick={history}
+                shadow
+                color="#4169E1"
+                buttonState={state1}
+                idleText='History'
+                size='large'
+            />
+        </div>
     );
 }
 
