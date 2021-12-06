@@ -3,7 +3,7 @@ import { useState } from 'react';
 import ReactiveButton from 'reactive-button';
 import Chart from "react-apexcharts";
 import { logDOM } from "@testing-library/dom";
-
+import './Home.css'
 
 function App() {
     const [state1, setState] = useState('idle');
@@ -18,14 +18,14 @@ function App() {
     let state2 = {
         series: [{
             name: 'Capacity',
-            data: ["23", "31", "40", "30", "101", "36", "32", "23", "14", "8", "5", "2"] 
+            data: ["5", "10", "14", "20", "21", "23", "31", "40", "30", "40", "36", "32", "30", "27", "23", "14", "8", "5", "2"] 
           }],
           options: {
             colors: [function({ value, seriesIndex, w }) {
                 if (value < 45) {
                     return '#4169E1'
                 } else {
-                    return '#DB4437'
+                    return '#4169E1'
                 } 
             }],
             chart: {
@@ -53,7 +53,7 @@ function App() {
             },
             
             xaxis: {
-              categories: ["1pm", "2pm", "3pm", "4pm", "NOW", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm", "12am"],
+              categories: ["6am", "7am", "8am", "9am", "NOW", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm", "12am"],
               position: 'bottom',
               axisBorder: {
                 show: false
@@ -95,7 +95,8 @@ function App() {
             title: {
                 text: 'Prediction 🡺',
                 floating: true,
-                offsetY: 200,
+                offsetY: 100,
+                offsetX: -450,
                 align: 'center',
                 style: {
                   color: '#444'
@@ -106,11 +107,14 @@ function App() {
 
     return (
         <div>
+          <div className="header">
+            <h1>Gym Occupation Today</h1>
+          </div>
             <Chart
                 options={state2.options}
                 series={state2.series}
                 type="bar"
-                width="1200"
+                width="1800"
                 height="500"
                 align='center'
             />

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { CsvToHtmlTable } from 'react-csv-to-table';
+import './History.css'
 
 function History() {
     const historyData = `,Monday   ,Tuesday   ,Wednesday   ,Thursday   ,Friday   ,Saturday   ,Sunday 
@@ -23,7 +24,9 @@ function History() {
     11:00 PM-12:00 AM   ,8,10,11,14,8,19,14
         `;
     return (
-        <CsvToHtmlTable data={historyData} csvDelimiter="," />
+        <div className="recTable">
+            <CsvToHtmlTable data={historyData} csvDelimiter="," />
+        </div>
     );
 }
 

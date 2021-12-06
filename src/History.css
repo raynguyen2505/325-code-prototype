@@ -1,0 +1,14 @@
+.recTable {
+    border:1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.recTable th {
+    border:1px solid black;
+    height: 70px;
+}
+
+.recTable td {
+    border:1px solid black;
+}
