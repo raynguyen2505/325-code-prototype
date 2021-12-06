@@ -118,21 +118,7 @@ function App() {
                 style={
                     {
                         borderRadius: '10px',
-                        left: '400px',
-                    }
-                }
-                shadow
-                size="large"
-                color="#4169E1"
-                buttonState={state1}
-                idleText='More Info'
-                onClick={moreInfo}
-            />
-            <ReactiveButton
-                style={
-                    {
-                        borderRadius: '10px',
-                        left: '800px',
+                        left: '650px',
                     }
                 }
                 onClick={history}

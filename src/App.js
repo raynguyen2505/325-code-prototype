@@ -4,7 +4,6 @@ import { Navbar, Nav, NavDropdown, Button, Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Map from "./Map";
 import Home from "./Home";
-import More_Info from "./More_Info";
 import History from "./History";
 import Recommendation from "./Recommendation"
 import {
@@ -40,9 +39,6 @@ function App() {
           </Route>
           <Route path="/map" component={Map}>
             <Map />
-          </Route>
-          <Route path="/more_info" component={More_Info}>
-            <More_Info />
           </Route>
           <Route path="/history" component={History}>
             <History />
